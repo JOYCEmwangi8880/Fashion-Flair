@@ -1,5 +1,6 @@
 export const productsData = [
   {
+    id: 1,
     img: "/cta-banner.jpg",
     title: "Women's Shirt",
     price: 2600,
@@ -9,6 +10,7 @@ export const productsData = [
     brand: "prada",
   },
   {
+    id: 2,
     img: "/jacket-1.jpg",
     title: "Women's Shirt",
     price: 2600,
@@ -18,6 +20,7 @@ export const productsData = [
     brand: "prada",
   },
   {
+    id: 3,
     img: "/jacket-2.jpg",
     title: "Women's Shirt",
     price: 2600,
@@ -27,6 +30,7 @@ export const productsData = [
     brand: "prada",
   },
   {
+    id: 4,
     img: "/shirt-1.jpg",
     title: "Women's Shirt",
     price: 2600,
@@ -36,6 +40,7 @@ export const productsData = [
     brand: "prada",
   },
   {
+    id: 5,
     img: "/patty-wear-1.jpg",
     title: "Women's Shirt",
     price: 2600,
@@ -45,6 +50,7 @@ export const productsData = [
     brand: "prada",
   },
   {
+    id: 6,
     img: "/watch-1.jpg",
     title: "Women's Shirt",
     price: 2600,
@@ -54,6 +60,7 @@ export const productsData = [
     brand: "prada",
   },
   {
+    id: 7,
     img: "/watch-2.jpg",
     title: "Women's Shirt",
     price: 2600,
@@ -63,6 +70,7 @@ export const productsData = [
     brand: "prada",
   },
   {
+    id: 8,
     img: "/skirt-1.jpg",
     title: "Women's Skirt",
     price: 2600,
