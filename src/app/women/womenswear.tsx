@@ -1,0 +1,50 @@
+export const womensweardata = [
+    {
+        id:1,
+        img: "/casual-2.jpg",
+        title: "Women's Shirt",
+        price: 2600,
+        description: "cotton",
+        rating: 4,
+    },
+    {
+        id: 2,
+        img: "/earings-1.jpg",
+        title: "Women's rings",
+        price: 2600,
+        description: "cotton",
+        rating: 4,
+    },
+    {
+        id: 3,
+        img: "/heels-1.jpg",
+        title: "Women's shoes",
+        price: 2600,
+        description: "cotton",
+        rating: 4,
+    },
+    {
+        id: 4,
+        img: "/jewelry-1.jpg",
+        title: "Women's jeweleries",
+        price: 2600,
+        description: "cotton",
+        rating: 4,
+    },
+    {
+        id: 5,
+        img: "/rings-3.jpg",
+        title: "Women's jeweleries",
+        price: 2600,
+        description: "cotton",
+        rating: 4,
+    },
+    {
+        id: 6,
+        img: "/short-1.jpg",
+        title: "Women's Short",
+        price: 2600,
+        description: "cotton",
+        rating: 4,
+    }
+]
