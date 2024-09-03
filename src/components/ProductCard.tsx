@@ -1,8 +1,13 @@
-import React from 'react'
-import Image from "next/image";
-import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from "react-icons/ai"
+"use client";
+import React from 'react';
+import Image from 'next/image';
+import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai';
+import { useRouter } from 'next/navigation';
+import { useCart } from '@/app/addtocart/usecart';
 
-interface propstype {
+
+interface PropType {
+  id: number; 
   img: string;
   title: string;
   price: number;
@@ -12,68 +17,37 @@ interface propstype {
   brand: string;
 }
 
-const ProductCard: React.FC<propstype> = ({ img, title, price, description, rating, category, brand }) => {
+const ProductCard: React.FC<PropType> = ({ id, img, title, price, description, rating, category, brand }) => {
+  const router = useRouter();
+  const { addToCart } = useCart();
+  
+  
+  
+
+  const handleImageClick = () => {
+    router.push(`/products/${id}`); 
+  };
+  
+  const handleAddToCart = () => {
+    addToCart({ id, img, title, price, description, rating, category, brand });
+  };
+  
+ 
 
   const generateRating = (rating: number) => {
-    switch (rating) {
-      case 1:
-        return (
-          <div className='flex gap-1 text-[20px] text-[#FF9529]'>
-            <AiFillStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 2:
-        return (
-          <div className='flex gap-1 text-[20px] text-[#FF9529]'>
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 3:
-        return (
-          <div className='flex gap-1 text-[20px] text-[#FF9529]'>
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 4:
-        return (
-          <div className='flex gap-1 text-[20px] text-[#FF9529]'>
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
-          </div>
-        );
-      case 5:
-        return (
-          <div className='flex gap-1 text-[20px] text-[#FF9529]'>
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-          </div>
-        );
-      default:
-        return null;
-    }
-  }
+    const stars = Array(5).fill(false).map((_, index) => index < rating);
+    return (
+      <div className='flex gap-1 text-[20px] text-[#FF9529]'>
+        {stars.map((filled, index) => (
+          filled ? <AiFillStar key={index} /> : <AiOutlineStar key={index} />
+        ))}
+      </div>
+    );
+  };
 
   return (
     <div className='px-4 border-gray-200 rounded-xl max-w-[400px]'>
-      <div>
+      <div onClick={handleImageClick} className='cursor-pointer'>
         <Image className='w-full h-auto' src={img} width={450} height={400} alt={title} />
       </div>
 
@@ -83,17 +57,19 @@ const ProductCard: React.FC<propstype> = ({ img, title, price, description, rati
         <div>{generateRating(rating)}</div>
 
         <div className='font-bold flex gap-4'>
-          Ksh(price)
+          Ksh {price}
           <del className='text-gray-500 font-normal'> Ksh {price + 500}</del>
         </div>
 
-        <button className='flex items-center gap-2 bg-red-900 text-white px-4 py-2 rounded-lg mt-4 hover:bg-blue-800'>
+        <button 
+          onClick={handleAddToCart}
+          className='flex items-center gap-1 bg-red-900 text-white px-4 py-1 rounded-lg mt-4 hover:bg-blue-800'>
           <AiOutlineShoppingCart />
-          Shop Now
+          Add to Cart
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;
