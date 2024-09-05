@@ -51,7 +51,7 @@ export const productsData = [
   },
   {
     id: 6,
-    img: "/watch-1.jpg",
+    img: "/jacket-2.jpg",
     title: "Women's Shirt",
     price: 2600,
     description: "leather pouch",
