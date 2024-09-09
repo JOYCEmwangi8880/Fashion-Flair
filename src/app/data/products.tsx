@@ -89,4 +89,14 @@ export const productsData = [
     category: "Clothing",
     brand: "prada",
   },
+  {
+    id: 10,
+    img: "/user-3.jpg",
+    title: "Women's Skirt",
+    price: 2600,
+    description: "jeans skirt",
+    rating: 4,
+    category: "Clothing",
+    brand: "prada",
+  },
 ];
