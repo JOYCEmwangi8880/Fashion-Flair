@@ -1,25 +1,45 @@
-"use client"
-import { useState, useContext, createContext } from 'react';
+"use client";
 
+import { useState, useContext, createContext, ReactNode } from 'react';
 
- export const CartContext = createContext();
+// Define the type for the cart item
+interface CartItem {
+  id: string;
+  // Add other properties as needed
+}
 
+// Define the type for the context value
+interface CartContextType {
+  cartItems: CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (itemId: string) => void;
+}
 
+// Create the context with a default value
+export const CartContext = createContext<CartContextType>({
+  cartItems: [],
+  addToCart: () => {},
+  removeFromCart: () => {},
+});
+
+// Custom hook to use the cart context
 export function useCart() {
   return useContext(CartContext);
 }
 
+// Cart provider component
+interface CartProviderProps {
+  children: ReactNode;
+}
 
-export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+export function CartProvider({ children }: CartProviderProps) {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  
-  const addToCart = (item) => {
+  const addToCart = (item: CartItem) => {
     setCartItems((prevItems) => [...prevItems, item]);
   };
 
-  
-  const removeFromCart = (itemId) => {
+  const removeFromCart = (itemId: string) => {
     setCartItems((prevItems) =>
       prevItems.filter((item) => item.id !== itemId)
     );
