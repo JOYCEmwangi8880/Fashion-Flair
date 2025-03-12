@@ -25,12 +25,10 @@ export default function Navbar() {
             {showCategories && (
               <ul className="dropdown absolute left-0 mt-2 w-40 bg-white shadow-lg">
                 <li className="py-2 px-4 hover:bg-gray-200">
-                  {/* eslint-disable-next-line react/no-unescaped-entities */}
-                  <Link href="/men">MEN'S</Link>
+                  <Link href="/men">MEN&apos;S</Link>
                 </li>
                 <li className="py-2 px-4 hover:bg-gray-200">
-                  {/* eslint-disable-next-line react/no-unescaped-entities */}
-                  <Link href="/women">WOMEN'S</Link>
+                  <Link href="/women">WOMEN&apos;S</Link>
                 </li>
                 <li className="py-2 px-4 hover:bg-gray-200">
                   <Link href="/jewellery">JEWELLERY</Link>
