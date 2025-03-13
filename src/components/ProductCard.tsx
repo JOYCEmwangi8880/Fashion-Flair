@@ -5,34 +5,37 @@ import { AiFillStar, AiOutlineStar, AiOutlineShoppingCart } from 'react-icons/ai
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/app/addtocart/usecart';
 
-
 interface PropType {
-  id: number; 
+  id: string;
   img: string;
   title: string;
   price: number;
   description: string;
   rating: number;
-  category: string;
-  brand: string;
+  category: string; 
+  brand: string; 
 }
 
 const ProductCard: React.FC<PropType> = ({ id, img, title, price, description, rating, category, brand }) => {
   const router = useRouter();
   const { addToCart } = useCart();
-  
-  
-  
 
   const handleImageClick = () => {
-    router.push(`/products/${id}`); 
+    router.push(`/products/${id}`);
   };
-  
+
   const handleAddToCart = () => {
-    addToCart({ id, img, title, price, description, rating, category, brand });
+    addToCart({
+      id: id.toString(), // Convert id to string
+      img: img, // Pass img
+      title: title, // Pass title
+      price: price, // Pass price
+      description: description, // Pass description
+      rating: rating, // Pass rating
+      category: category || "Uncategorized", // Default value if category is undefined
+      brand: brand || "Unbranded", // Default value if brand is undefined
+    });
   };
-  
- 
 
   const generateRating = (rating: number) => {
     const stars = Array(5).fill(false).map((_, index) => index < rating);
@@ -61,9 +64,10 @@ const ProductCard: React.FC<PropType> = ({ id, img, title, price, description, r
           <del className='text-gray-500 font-normal'> Ksh {price + 500}</del>
         </div>
 
-        <button 
+        <button
           onClick={handleAddToCart}
-          className='flex items-center gap-1 bg-red-900 text-white px-4 py-1 rounded-lg mt-4 hover:bg-blue-800'>
+          className='flex items-center gap-1 bg-red-900 text-white px-4 py-1 rounded-lg mt-4 hover:bg-blue-800'
+        >
           <AiOutlineShoppingCart />
           Add to Cart
         </button>

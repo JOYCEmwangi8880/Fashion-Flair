@@ -11,8 +11,8 @@ function NewProducts() {
         <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-10 xl:gap-x-20 xl:gap-y-10">
           {productsData.map((item, index) => (
             <ProductCard
-              key={item.id}
-              id={item.id} 
+              key={item.id.toString()} // Convert id to string
+              id={item.id.toString()} 
               img={item.img}
               title={item.title}
               price={item.price}

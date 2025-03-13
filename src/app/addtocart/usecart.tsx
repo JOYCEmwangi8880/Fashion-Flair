@@ -5,7 +5,13 @@ import { useState, useContext, createContext, ReactNode } from 'react';
 // Define the type for the cart item
 interface CartItem {
   id: string;
-  // Add other properties as needed
+  img: string; // Add img
+  title: string; // Add title
+  price: number; // Add price
+  description: string; // Add description
+  rating: number; // Add rating
+  category: string; // Add category
+  brand: string; // Add brand
 }
 
 // Define the type for the context value

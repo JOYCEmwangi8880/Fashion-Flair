@@ -17,7 +17,7 @@ const Page = () => {
   return (
     <div>
       <ProductCard
-        id={product.id}
+        id={product.id.toString()}
         img={product.img}
         title={product.title}
         price={product.price}
