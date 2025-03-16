@@ -9,17 +9,18 @@ const WomensWear = () => {
         <h2 className="font-medium text-2xl pb-04">Women&apos;s Wear</h2>
         <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-10 xl:gap-x-20 xl:gap-y-10">
           {womensweardata.map((item) => (
-            <ProductCard
-              key={item.id.toString()} // Convert id to string
-              id={item.id.toString()} // Convert id to string
-              img={item.img}
-              title={item.title}
-              price={item.price}
-              description={item.description}
-              rating={item.rating}
-              category={item.category} // Pass category
-              brand={item.brand} // Pass brand
-            />
+            <div key={item.id}>
+              <ProductCard
+                id={item.id}
+                img={item.img}
+                title={item.title}
+                price={item.price}
+                description={item.description}
+                rating={item.rating}
+                category={item.category}
+                brand={item.brand}
+              />
+            </div>
           ))}
         </div>
       </div>
